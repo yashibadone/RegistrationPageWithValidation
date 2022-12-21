@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Registration page</title>
+	<!-- <link rel="stylesheet" href="offlineboot.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+	<style>
+		
+	</style>
+	<script>
+	function nm()
+	{
+		// alert("ok")
+		var name=document.getElementById("name").value;
+		
+		var name_valid=/^[A-Z]+$/;
+		
+
+		if(!name.match(name_valid))
+		{
+			document.getElementById("name-error").innerHTML="please enter only capital letters"
+		}
+		else if(name.match(name_valid))
+		{
+			document.getElementById("name-error").innerHTML=" "
+		}
+		
+		
+	}	
+	function email()
+	{
+		// alert("ok")
+		var email=document.getElementById("mail").value;
+		var email_valid=/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
+		if(!email.match(email_valid))
+		{
+			document.getElementById("mail-error").innerHTML="please enter valid email"
+			document.getElementById("mail-error").style.color="red"
+		}
+		else if(email.match(email_valid))
+		{
+			document.getElementById("mail-error").innerHTML=" "
+		}
+
+	}
+	function paswrd()
+	{
+		var password=document.getElementById("psw").value;
+		var paswrd_valid=/^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[/#/@])){8,12}/;
+		if(!password.match(paswrd_valid))
+		{
+			document.getElementById("pass-error").innerHTML="please enter one 1 uppercase 1 lowercase 1number and 1 symbol"
+			document.getElementById("pass-error").style.color="red"
+		}
+		else if(password.match(paswrd_valid))
+		{
+			document.getElementById("pass-error").innerHTML=" "
+		}
+
+	}
+	function repwd(){
+		var password=document.getElementById("psw").value;
+		var re_paswrd=document.getElementById('rp').value;
+		if(password!=re_paswrd)
+		{
+			document.getElementById("repwd_error").innerHTML="please enter correct password"
+		}
+		else
+		{
+			document.getElementById("repwd_error").innerHTML="correct password "
+			document.getElementById("repwd_error").style.color="green"
+		}
+	}
+	</script>
+</head>
+<body>
+<div class="container-fluid bg-image" 
+style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+	   height: 100vh">
+	
+
+
+	<div class="row">
+		
+
+		<div class="col-md-6 mt-5">
+			<img src="https://picsum.photos/650/490" />
+		</div>
+		<div class="col-md-6 mt-5">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="card-title">Registration</h5>
+				</div>
+				<div class="card-body">
+					<form>
+						<div class="form-group">
+							<label for="">Name</label>
+							<input type="name" class="form-control" id="name" onkeyup="nm()" />
+						</div>
+						<div id="name-error"style="color: red;"></div>
+						<div class="form-group">
+							<label for="">Email</label>
+							<input type="email" class="form-control" id="mail" onkeyup="email()" />
+						</div>
+						<div id="mail-error"></div>
+						<div class="form-group">
+							<label for="">Password</label>
+							<input type="password" id="psw" class="form-control" onkeyup="paswrd()" />
+						</div>
+						<div id="pass-error"></div>
+						<div class="form-group">
+							<label for="">Re-confirm Password</label>
+							<input type="password" class="form-control" id="rp" onkeyup="repwd()" />
+						</div>
+						<div id="repwd_error"style="color: red;"></div>
+						<button class="btn btn-outline-success form-control">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+
+</div>
+
+
+</body>
+</html>
